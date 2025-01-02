@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Exercises'),
+      home: const MyHomePage(title: 'TP1 Flutter'),
     );
   }
 }
@@ -32,9 +32,12 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
+        backgroundColor: Colors.purple,
+        foregroundColor: Colors.white,
+        centerTitle: true,
       ),
       body: Center(
-        child: Column(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
@@ -45,17 +48,36 @@ class MyHomePage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const ProfileHomePage()),
                 );
               },
-              child: const Text('Go to Profile Card'),
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12), // Coins arrondis
+                ),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 16,
+                  horizontal: 24,
+                ),
+              ),
+              child: const Text('Page de Profil'),
             ),
+            const SizedBox(width: 16), // Espacement entre les boutons
             ElevatedButton(
               onPressed: () {
                 // Naviguer vers la page Quiz
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const QuizzPage(title: 'Flutter Quizz')),
+                  MaterialPageRoute(builder: (context) => const QuizzPage(title: 'Questions/Réponses')),
                 );
               },
-              child: const Text('Go to Quiz'),
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12), // Coins arrondis
+                ),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 16,
+                  horizontal: 24,
+                ),
+              ),
+              child: const Text('Quiz'),
             ),
           ],
         ),
